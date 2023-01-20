@@ -1,10 +1,10 @@
 const path = require('path');
-const {htmlPluginsForAllPages, entriesForAllPages} = require("./webpack-utils");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
     entry: {
-        ...entriesForAllPages
+        main: path.resolve(__dirname, 'src/index')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -17,9 +17,10 @@ const config = {
     devServer: {
         open: true,
         host: 'localhost',
+        historyApiFallback: true,
     },
     plugins: [
-        ...htmlPluginsForAllPages
+        new HtmlWebpackPlugin()
     ],
     module: {
         rules: [
@@ -39,20 +40,6 @@ const config = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-            cacheGroups: {
-                commons: {
-                    minSize: 100,
-                    name: 'components',
-                    test: /[\\/]components\/common[\\/]/,
-                    chunks: 'all',
-                },
-                newsComponents: {
-                    minSize: 100,
-                    test: /[\\/]components\/news[\\/]/,
-                    name: 'news-components',
-                    chunks: 'all',
-                }
-            },
         },
     },
 };
