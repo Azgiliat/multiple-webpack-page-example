@@ -8,8 +8,9 @@ class Router {
 
     matchUrl() {
         for (const route of this.routes) {
-            if (this.location.pathname.includes(route.path)) {
+            if (this.location.pathname === route.path) {
                 this.loadRouteComponent(route.page)
+                break
             }
         }
     }

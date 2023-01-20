@@ -4,15 +4,15 @@ export const routes = [
         page: () => import('@/pages/main')
     },
     {
-        path: 'main',
+        path: '/main',
         page: () => import('@/pages/main')
     },
     {
-        path: 'news',
+        path: '/news',
         page: () => import('@/pages/news')
     },
     {
-        path: 'profile',
+        path: '/profile',
         page: () => import('@/pages/profile')
     }
 ]
