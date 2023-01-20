@@ -1,1 +1,0 @@
-(self.webpackChunkmy_webpack_project=self.webpackChunkmy_webpack_project||[]).push([[3],{3:()=>{console.log("hello profile")}}]);
