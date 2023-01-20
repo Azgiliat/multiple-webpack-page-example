@@ -40,6 +40,14 @@ const config = {
     optimization: {
         splitChunks: {
             chunks: 'all',
+            cacheGroups: {
+                commons: {
+                    minSize: 100,
+                    name: 'components',
+                    test: /[\\/]components\/common[\\/]/,
+                    chunks: 'all',
+                },
+            }
         },
     },
 };
